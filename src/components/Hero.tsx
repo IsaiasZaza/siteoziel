@@ -6,46 +6,70 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="relative w-full min-w-0 overflow-hidden pt-16 sm:pt-32"
+      className="relative w-full min-w-0 overflow-hidden pt-20 sm:pt-28"
     >
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_top,_#285cb8_0%,_#173869_40%,_#0b1f3a_75%)]" />
-      <div className="absolute -left-16 top-20 -z-10 h-52 w-52 rounded-full bg-[#8ec5ff]/20 blur-3xl" />
-      <div className="absolute -right-10 bottom-8 -z-10 h-60 w-60 rounded-full bg-[#1e4c9a]/40 blur-3xl" />
+      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_50%_0%,#a67c52_0%,#5c3d24_38%,#151210_72%)]" />
+      <div
+        className="glow-drift absolute -left-20 top-32 -z-10 h-64 w-64 rounded-full bg-[#e8b565]/14 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="glow-drift-reverse absolute -right-16 bottom-24 -z-10 h-72 w-72 rounded-full bg-[#6b4423]/35 blur-3xl"
+        style={{ animationDelay: "2.5s" }}
+        aria-hidden
+      />
 
-      <div className="section-shell grid min-w-0 grid-cols-1 items-center gap-10 py-16 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="fade-in-up min-w-0 space-y-6">
-          <span className="glass flex w-full max-w-full flex-wrap items-center gap-2 rounded-2xl px-4 py-3 text-xs leading-snug text-blue-100 sm:inline-flex sm:w-auto sm:rounded-full sm:py-2">
-            <Sparkles className="size-4 shrink-0 text-[#8ec5ff]" />
-            <span className="min-w-0">
-              Aula de Canto · Estudio Vocal · Julio Petros e Thassya Helena
-            </span>
-          </span>
-          <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-            Descubra o poder da sua voz
-          </h1>
-          <p className="max-w-xl text-pretty text-base leading-relaxed text-blue-100 sm:text-lg">
-            Treinamento vocal com didatica moderna para voce cantar com
-            seguranca, emocao e identidade propria em qualquer repertorio.
-          </p>
-          <WhatsAppButton
-            label="Fale no WhatsApp"
-            className="w-full max-w-md px-8 py-3.5 text-sm sm:w-auto sm:text-base"
-          />
-        </div>
+      <div className="section-shell relative pb-20 sm:pb-28">
+        <div className="relative min-w-0">
+          <div className="group relative hidden aspect-video w-full min-h-[220px] overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#141210] shadow-2xl shadow-black/50 sm:block md:min-h-[260px] lg:min-h-[280px]">
+            <Image
+              src="/ozArtes.jpeg"
+              alt="Ozeart's — aulas de canto e instrumentos"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 72rem"
+              className="object-contain object-center transition-transform duration-[1.05s] ease-out group-hover:scale-[1.02]"
+            />
+            <div
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#151210]/80 via-transparent to-[#151210]/25"
+              aria-hidden
+            />
+          </div>
 
-        <div
-          className="fade-in-up min-w-0 glass soft-hover rounded-3xl p-5 shadow-2xl shadow-black/30"
-          style={{ animationDelay: "0.15s" }}
-        >
-          <Image
-            src="/Julio.jpeg"
-            alt="Ilustração de cantora em aula de canto"
-            width={640}
-            height={640}
-            sizes="(max-width: 1024px) 100vw, 42vw"
-            className="h-auto w-full rounded-2xl"
-            priority
-          />
+          <div className="relative z-10 mx-auto w-full max-w-xl px-3 sm:-mt-20 sm:max-w-2xl sm:px-2 lg:-mt-24 lg:max-w-3xl">
+            <div className="glass soft-hover rounded-2xl px-5 py-7 text-center shadow-2xl sm:rounded-3xl sm:px-10 sm:py-10">
+              <span className="mx-auto mb-5 inline-flex max-w-full flex-wrap items-center justify-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-xs font-medium text-stone-200">
+                <Sparkles className="size-4 shrink-0 text-[#e8b565]" />
+                <span>
+                  Ozeart&apos;s ·{" "}
+                  <strong className="font-semibold text-[#e8b565]">Canto</strong>
+                  {" · "}
+                  <strong className="font-semibold text-[#e8b565]">
+                    Instrumentos
+                  </strong>
+                </span>
+              </span>
+              <h1 className="text-balance text-3xl font-bold leading-[1.15] text-white sm:text-4xl md:text-5xl lg:text-[2.75rem] lg:leading-tight">
+                Sua voz e seus{" "}
+                <span className="text-[#e8b565]">instrumentos</span> em primeiro
+                plano
+              </h1>
+              <p className="mx-auto mt-5 max-w-xl text-pretty text-sm leading-relaxed text-stone-300 sm:text-base">
+                Aulas de <strong className="font-semibold text-stone-200">canto</strong> com tecnica e interpretacao, e de{" "}
+                <strong className="font-semibold text-[#e8b565]">
+                  instrumentos
+                </strong>{" "}
+                (violao, piano e outros) com postura, leitura e repertorio —
+                tudo no mesmo espaco, do estudio ao palco.
+              </p>
+              <div className="mt-8 flex justify-center">
+                <WhatsAppButton
+                  label="Fale no WhatsApp"
+                  className="w-full max-w-sm px-8 py-3.5 text-sm sm:w-auto sm:text-base"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

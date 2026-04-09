@@ -19,6 +19,7 @@ function isHashHref(href: string): href is `#${string}` {
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
@@ -32,6 +33,13 @@ export function Header() {
     },
     [closeMenu],
   );
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 18);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -54,23 +62,28 @@ export function Header() {
   return (
     <>
       <div
-        className={`fixed inset-0 z-40 bg-[#0b1f3a]/70 backdrop-blur-sm transition-[opacity,visibility] duration-300 ease-out md:hidden ${menuOpen
-            ? "visible opacity-100"
-            : "pointer-events-none invisible opacity-0"
+        className={`fixed inset-0 z-40 bg-[#151210]/75 backdrop-blur-sm transition-[opacity,visibility] duration-300 ease-out md:hidden ${menuOpen
+          ? "visible opacity-100"
+          : "pointer-events-none invisible opacity-0"
           }`}
         aria-hidden={!menuOpen}
         onClick={closeMenu}
       />
 
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#08172d]/85 backdrop-blur-2xl">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 border-b bg-[#120e0c]/88 backdrop-blur-2xl transition-[box-shadow,border-color,background-color] duration-300 ease-out ${scrolled
+          ? "border-white/14 shadow-[0_12px_42px_rgba(0,0,0,0.42)] bg-[#120e0c]/94"
+          : "border-white/10 shadow-none"
+          }`}
+      >
         <div className="relative">
           <div className="section-shell flex min-w-0 items-center justify-between gap-3 py-3.5 sm:gap-4 sm:py-4">
             <a
               href="#inicio"
               onClick={(e) => handleNavClick(e, "#inicio")}
-              className="shrink-0 text-lg font-semibold tracking-tight text-white transition-colors hover:text-[#8ec5ff] sm:text-xl md:text-2xl"
+              className="shrink-0 text-lg font-semibold tracking-tight text-white transition-[color,transform] duration-200 hover:text-[#e8b565] active:scale-[0.98] sm:text-xl md:text-2xl"
             >
-              Estudio Vocal
+              Ozeart's
             </a>
 
             <nav
@@ -83,7 +96,7 @@ export function Header() {
                     <a
                       href={item.href}
                       onClick={(e) => handleNavClick(e, item.href)}
-                      className="inline-flex rounded-full px-3 py-2 text-sm font-medium text-white/90 transition-colors duration-200 ease-out hover:bg-white/10 hover:text-white lg:text-base"
+                      className="relative inline-flex rounded-full px-3 py-2 text-sm font-medium text-white/90 transition-colors duration-200 ease-out after:pointer-events-none after:absolute after:bottom-0 after:left-1/2 after:h-0.5 after:w-0 after:-translate-x-1/2 after:rounded-full after:bg-[#e8b565] after:opacity-0 after:transition-[width,opacity] after:duration-300 hover:bg-white/10 hover:text-white hover:after:w-[70%] hover:after:opacity-100 lg:text-base"
                     >
                       {item.label}
                     </a>
@@ -125,9 +138,9 @@ export function Header() {
             id="mobile-navigation"
             aria-label="Principal"
             inert={!menuOpen ? true : undefined}
-            className={`absolute left-0 right-0 top-full overflow-hidden border-b border-white/10 bg-[#08172d]/95 backdrop-blur-2xl transition-[opacity,transform,visibility] duration-300 ease-out md:hidden ${menuOpen
-                ? "visible translate-y-0 opacity-100"
-                : "pointer-events-none invisible -translate-y-3 opacity-0"
+            className={`absolute left-0 right-0 top-full overflow-hidden border-b border-white/10 bg-[#120e0c]/95 backdrop-blur-2xl transition-[opacity,transform,visibility] duration-300 ease-out md:hidden ${menuOpen
+              ? "visible translate-y-0 opacity-100"
+              : "pointer-events-none invisible -translate-y-3 opacity-0"
               }`}
           >
             <ul className="section-shell flex flex-col gap-0.5 py-4 pb-5">

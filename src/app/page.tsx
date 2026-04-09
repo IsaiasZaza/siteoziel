@@ -9,13 +9,17 @@ import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full min-w-0 bg-[#0b1f3a]">
+    <div className="min-h-screen w-full min-w-0 bg-[#151210]">
       <Header />
       <main className="w-full min-w-0">
         <Hero />
+        <div className="border-y border-white/[0.06] bg-[#1a1612]/55">
+          <Services />
+        </div>
         <About />
-        <Services />
-        <Testimonials />
+        <div className="bg-[#1a1612]/40">
+          <Testimonials />
+        </div>
         <Contact />
         <Location />
       </main>
