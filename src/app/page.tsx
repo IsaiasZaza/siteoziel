@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { Location } from "@/components/Location";
 import { Services } from "@/components/Services";
+import { SpecialtyInstruments } from "@/components/SpecialtyInstruments";
 import { Testimonials } from "@/components/Testimonials";
 
 export default function Home() {
@@ -15,6 +16,9 @@ export default function Home() {
         <Hero />
         <div className="border-y border-white/[0.06] bg-[#1a1612]/55">
           <Services />
+        </div>
+        <div className="bg-[#151210]">
+          <SpecialtyInstruments />
         </div>
         <About />
         <div className="bg-[#1a1612]/40">

@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     "professor de canto",
     "aulas de violão",
     "aulas de piano",
+    "aulas de bateria",
+    "aulas de sanfona",
+    "aulas de teclado",
+    "cavaquinho",
+    "ukulele",
+    "viola caipira",
+    "percussao",
     "Ozeart's",
   ],
   openGraph: {
