@@ -87,7 +87,7 @@ export function Footer() {
             © {year} Ozeart's. Todos os direitos reservados.
           </p>
           <p className="text-xs text-stone-500/90">
-            Nome e marcas de exibicao — personalize no projeto.
+            Ozeart's 2026
           </p>
         </div>
       </div>
